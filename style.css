@@ -1,4 +1,4 @@
-/* Background */
+/* Full background */
 body {
   margin: 0;
   height: 100vh;
@@ -9,7 +9,7 @@ body {
   text-align: center;
 }
 
-/* Lanterns container */
+/* Lantern container */
 .lantern-container {
   position: absolute;
   top: 0;
@@ -18,9 +18,10 @@ body {
   height: 100%;
   overflow: hidden;
   pointer-events: none;
+  z-index: 1;
 }
 
-/* Lanterns */
+/* Lantern style */
 .lantern {
   position: absolute;
   bottom: -100px;
@@ -28,11 +29,11 @@ body {
   height: 60px;
   background: radial-gradient(circle at 20% 20%, #ffefba, #ff8008);
   border-radius: 10px;
-  opacity: 0.8;
+  opacity: 0.9;
   animation: floatUp 10s linear infinite;
 }
 
-/* Flicker glow */
+/* Glow inside lantern */
 .lantern::after {
   content: "";
   position: absolute;
@@ -46,27 +47,35 @@ body {
   animation: flicker 1.5s infinite alternate;
 }
 
-/* Floating animation */
+/* Float animation */
 @keyframes floatUp {
-  from {
-    transform: translateY(0) scale(1);
-    opacity: 0.8;
-  }
-  to {
-    transform: translateY(-120vh) scale(1.2);
-    opacity: 0;
-  }
+  from { transform: translateY(0) scale(1); opacity: 1; }
+  to { transform: translateY(-120vh) scale(1.2); opacity: 0; }
 }
 
-/* Flickering */
+/* Flicker animation */
 @keyframes flicker {
   from { opacity: 1; }
   to { opacity: 0.4; }
 }
 
-/* Message */
+/* Birthday message */
 .message {
   position: relative;
   top: 40%;
   z-index: 10;
+}
+
+/* Music toggle button */
+#toggle-sound {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 15px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
+  background: #ffb347;
+  cursor: pointer;
+  z-index: 20;
 }
